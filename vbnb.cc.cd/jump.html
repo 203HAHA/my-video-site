@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Loading Video Content...</title>
+    <script>
+        window.onload = function() {
+            // 从当前网页的 URL 参数中，动态提取最终要刷的联盟直连视频链接
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetVideo = urlParams.get('vid');
+            
+            if (targetVideo) {
+                print("🔗 正在执行站外流量洗白洗牌，即将为您跳转至合规媒体流...");
+                setTimeout(function() {
+                    // 2秒后执行原生重定向，强行在浏览器顶层产生合规的 Referer 外链历史记录
+                    window.location.href = decodeURIComponent(targetVideo);
+                }, 2000);
+            } else {
+                document.body.innerText = "Error: Missing target video token.";
+            }
+        };
+    </script>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 20%; font-family: sans-serif; color: #666;">
+        <h2>🔄 Secure Media Gateway Redirecting...</h2>
+        <p>Please wait while we verify your secure connection...</p>
+    </div>
+</body>
+</html>
