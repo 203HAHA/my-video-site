@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Media Loading...</title>
+    <script>
+        window.onload = function() {
+            // 1. 动态抓取当前页面 URL 后方的查询参数 ?vid=...
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetVideo = urlParams.get('vid');
+            
+            if (targetVideo) {
+                // 2. 核心反解：利用 decodeURIComponent 完美将转义字符还原并实施原生顶层跳转
+                setTimeout(function() {
+                    window.location.href = decodeURIComponent(targetVideo);
+                }, 2000); // 留出 2 秒安全期，确保浏览器向联盟网关提交完美的自建站原生 Referer 记录
+            } else {
+                document.body.innerText = "Error: Token placement mismatched.";
+            }
+        };
+    </script>
+</head>
+<body style="background:#f4f4f4; text-align:center; padding-top:15%; font-family:sans-serif;">
+    <h2>🔄 Traffic Washing Gateway...</h2>
+    <p>Verifying secure referrer parameters, redirecting shortly.</p>
+</body>
+</html>
