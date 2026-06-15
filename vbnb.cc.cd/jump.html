@@ -2,29 +2,26 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Loading Video Content...</title>
+    <title>Media Loading...</title>
     <script>
         window.onload = function() {
-            // 从当前网页的 URL 参数中，动态提取最终要刷的联盟直连视频链接
+            // 1. 动态抓取当前页面 URL 后方的查询参数 ?vid=...
             const urlParams = new URLSearchParams(window.location.search);
             const targetVideo = urlParams.get('vid');
             
             if (targetVideo) {
-                print("🔗 正在执行站外流量洗白洗牌，即将为您跳转至合规媒体流...");
+                // 2. 核心反解：利用 decodeURIComponent 完美将 %3A%2F%2F 还原回正统链接并实施原生跳转
                 setTimeout(function() {
-                    // 2秒后执行原生重定向，强行在浏览器顶层产生合规的 Referer 外链历史记录
                     window.location.href = decodeURIComponent(targetVideo);
-                }, 2000);
+                }, 2000); // 留出 2 秒安全期，确保浏览器向联盟 CDN 提交完美的自建站原生 Referer 记录
             } else {
-                document.body.innerText = "Error: Missing target video token.";
+                document.body.innerText = "Error: Token placement mismatched.";
             }
         };
     </script>
 </head>
-<body>
-    <div style="text-align: center; margin-top: 20%; font-family: sans-serif; color: #666;">
-        <h2>🔄 Secure Media Gateway Redirecting...</h2>
-        <p>Please wait while we verify your secure connection...</p>
-    </div>
+<body style="background:#f4f4f4; text-align:center; padding-top:15%; font-family:sans-serif;">
+    <h2>🔄 Traffic Washing Gateway...</h2>
+    <p>Verifying secure referrer parameters, redirecting shortly.</p>
 </body>
 </html>
